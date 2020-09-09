@@ -14,8 +14,12 @@ app.use(cors())
 //const usernames = ["Mert", "Narmin", "Barış", "Akhlitdin", "Barjunaid", "Aswathi", "Surumi", "Aslam", "Tofi"]
 
 app.get('/usernames', async (req, res) => {
-  const users = await getUsers();
-  res.send(users);
+  try {
+    const users = await getUsers();
+    res.send(users);
+  } catch (error) {
+    console.log(error);
+  }
 })
 
 app.listen(3001)
